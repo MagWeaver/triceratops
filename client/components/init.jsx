@@ -12,15 +12,19 @@ import SearchComponent from './search.jsx';
 import UserComponent from './user.jsx';
 import CreateShareComponent from './createShare.jsx';
 import DetailComponent from './detail.jsx';
-
+import LoginComponent from './login.jsx';
+import TestComponent from './test.jsx'; 
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={SearchComponent}>
-      <Route path="/share" component={DetailComponent} />
-    </Route>
-    <Route path="/user" component={UserComponent} />
-    <Route path="/create" component={CreateShareComponent} />
+	  <Route component={NavComponent}>
+		    <Route path="/" component={SearchComponent} />
+		    <Route path="/share" component={DetailComponent} />
+		    <Route path="/create" component={CreateShareComponent} />
+		    <Route path="/user" component={UserComponent} />
+        <Route path="/login" component={LoginComponent} />
+        <Route path="/test" component={TestComponent} />
+	   </Route>
   </Router>, 
   document.getElementById('root')
 );
