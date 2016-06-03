@@ -53,24 +53,31 @@ class NavBar extends Component {
               <Link to="/listings"><FlatButton label="Sharing"/></Link>
             </li>
             <li className="nav-item">
-              <Link to="/manage"><FlatButton label="Dashboard"/></Link>
+                <Link to="/manage"><FlatButton label="Dashboard"/></Link>
             </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right" >
             <li>
               <SearchContainer />
             </li>
-            {isAuthenticated &&
-              <li className="nav-item">
-                <Link to="/profile"><FlatButton label="Profile"/></Link>
-              </li>
-            }
-            <li className="nav-item">
+            <li className="nav-item navLogin">
               {!isAuthenticated &&
                 <Link to="/login"><FlatButton label="Login"/></Link>
               }
               {isAuthenticated &&
-                <FlatButton onClick={this.props.logout} label="Logout"/>
+                <FlatButton style={{marginTop:'14px'}} onClick={this.props.logout} label="Logout"/>
               }
             </li>
+            <Link to="/profile">
+              <IconButton
+                className='navatar'
+                iconStyle={styles.mediumIcon}
+                style={styles.medium}
+              >
+              <Face />
+              </IconButton>
+            </Link>
+
           </ul>
         </nav>
       </div>
